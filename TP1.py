@@ -46,7 +46,9 @@ class Arme_LT(Weapon):
         super().fire_at(x,y,z)
         if z > 0:
             raise OutOfRangeError
-        if __name__ == "__main__":
+            
+            
+if __name__ == "__main__":
     Arme_LMS = Arme_LMS()
     Arme_LMA = Arme_LMA()
     Arme_LT = Arme_LT()
