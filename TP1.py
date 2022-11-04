@@ -46,6 +46,29 @@ class Arme_LT(Weapon):
         super().fire_at(x,y,z)
         if z > 0:
             raise OutOfRangeError
-
+        if __name__ == "__main__":
+    Arme_LMS = Arme_LMS()
+    Arme_LMA = Arme_LMA()
+    Arme_LT = Arme_LT()
+    Arme_LMS.fire_at(0,0,0)
+    assert Arme_LMS.ammunations == 39
+    try:
+        Arme_LMS.fire_at(0,0,1)
+    except:
+        assert Arme_LMS.ammunations == 38
+    Arme_LMA.fire_at(0,0,1)
+    assert Arme_LMA.ammunations == 49
+    try:
+        Arme_LMA.fire_at(0,0,0)
+    except:
+        assert Arme_LMA.ammunations == 48
+    Arme_LT.fire_at(0,0,0)
+    assert Arme_LT.ammunations == 14
+    Arme_LT.fire_at(0,0,-1)
+    assert Arme_LT.ammunations == 13
+    try:
+        Arme_LT.fire_at(0,0,1)
+    except:
+        assert Arme_LT.ammunations == 12
 
  
