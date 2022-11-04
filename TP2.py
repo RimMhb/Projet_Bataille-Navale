@@ -20,6 +20,40 @@ class Vessel:
         if self.max_hits == 0:
             raise DestroyedError
         self.weapon.fire_at(x,y,z)
+        class Cruiser(Vessel):
+    def __init__(self, coordinates: Tuple, max_hits: int, weapon: Weapon):
+        super().__init__(coordinates, 6, Arme_LMA())
+    def go_to(self, x, y, z):
+        if z==0:
+            super().go_to(x,y,z)
+
+class Submarine(Vessel):
+    def __init__(self, coordinates: Tuple, max_hits: int, weapon: Weapon):
+        super().__init__(coordinates, 2, Arme_LT())
+    def go_to(self, x, y, z):
+        if z<0:
+            super().go_to(x, y, z)
+    
+class Fregate(Vessel):
+    def __init__(self, coordinates: Tuple, max_hits: int, weapon: Weapon):
+        super().__init__(coordinates, 5, Arme_LMS())
+    def go_to(self, x, y, z):
+        if z == 0:
+            super().go_to(x, y, z)
+
+class Destroyer(Vessel):
+    def __init__(self, coordinates: Tuple, max_hits: int, weapon: Weapon):
+        super().__init__(coordinates, 4, Arme_LT())
+    def go_to(self, x, y, z):
+        if z == 0:    
+            super().go_to(x, y, z)
+    
+class Aircraft(Vessel):
+    def __init__(self, coordinates: Tuple, max_hits: int, weapon: Weapon):
+        super().__init__(coordinates, 1, Arme_LMS())
+    def go_to(self, x, y, z):
+        if z == 1:
+            super().go_to(x, y, z)    
 
         class Battlefield:
     def __init__(self):
